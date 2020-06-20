@@ -22,11 +22,11 @@
     <!-- NavBar -->
     <nav id="navbar">
       <div class="navbar__logo">
-        <div>DonKim</div>
+        <a href="#">DonKim</a>
       </div>
       <div class="navbar__menu">
         <ul class="navbar__menu">
-          <li class="navbar__menu__item">Home</li>
+          <li class="navbar__menu__item active">Home</li>
           <li class="navbar__menu__item">About</li>
           <li class="navbar__menu__item">Skills</li>
           <li class="navbar__menu__item">Projects</li>
@@ -35,12 +35,17 @@
       </div>
     </nav>
     <!-- Home -->
-    <section class="home">
-      <h1 class="home_title">Hello, I'm Dongwan Kim</h1>
-      <h2 class="home__description">A passionate full-stack web developer</h2>
+    <section id="home" class="section">
+      <div class="home__left">
+        <img src="#" alt="my profile" />
+      </div>
+      <div class="home__right">
+        <h1 class="home_title">Hello, I'm Don Kim</h1>
+        <h2 class="home__description">A passionate full-stack web developer</h2>
+      </div>
     </section>
     <!-- About -->
-    <section id="about">
+    <section id="about" class="section">
       <h1 class="about__title">About</h1>
       <p class="about__description">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et labore
@@ -50,31 +55,33 @@
       </p>
       <!-- #1 about__skills -->
       <div class="about__skills">
-        <div class="skills__icon">
-          <i class="fab fa-html5"></i>
+        <div class="about__skills__content">
+          <div class="skills__icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <div class="skills__title">Front-end</div>
+          <div class="skills__description">HTML, CSS, JavaScript, ReactJS</div>
         </div>
-        <div class="skills__title">Front-end</div>
-        <div class="skills__description">HTML, CSS, JavaScript, ReactJS</div>
-      </div>
-      <!-- #2 about__skills -->
-      <div class="about__skills">
-        <div class="skills__icon">
-          <i class="fab fa-html5"></i>
+        <!-- #2 about__skills -->
+        <div class="about__skills__content">
+          <div class="skills__icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <div class="skills__title">Back-end</div>
+          <div class="skills__description">HTML, CSS, JavaScript, ReactJS</div>
         </div>
-        <div class="skills__title">Back-end</div>
-        <div class="skills__description">HTML, CSS, JavaScript, ReactJS</div>
-      </div>
-      <!-- #3 about__skills -->
-      <div class="about__skills">
-        <div class="skills__icon">
-          <i class="fab fa-html5"></i>
+        <!-- #3 about__skills -->
+        <div class="about__skills__content">
+          <div class="skills__icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <div class="skills__title">Others</div>
+          <div class="skills__description">HTML, CSS, JavaScript, ReactJS</div>
         </div>
-        <div class="skills__title">Others</div>
-        <div class="skills__description">HTML, CSS, JavaScript, ReactJS</div>
       </div>
     </section>
     <!-- Skills -->
-    <section id="skills">
+    <section id="skills" class="section">
       <h1>Skills</h1>
       <h2>Skills & Attributes</h2>
       <p>
@@ -102,7 +109,7 @@
       </div>
     </section>
     <!-- Projects -->
-    <section id="Projects">
+    <section id="Projects" class="section">
       <h1>PROJECTS</h1>
       <div class="projects__categories">
         <button class="category__btn">
@@ -151,7 +158,8 @@
         </a>
       </div>
     </section>
-    <footer id="contact">
+    <!-- footer __ contact -->
+    <footer id="contact" class="section">
       <h1>Please contact me</h1>
       <h2>dongwan.don.kim@gmail.com</h2>
       <div class="contact__links">
