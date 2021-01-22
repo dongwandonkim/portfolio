@@ -6,6 +6,7 @@
   --color-satbeige: #f6d198;
   --color-satorange: #f4a548;
   --color-boldpurp: #862a5c;
+  --color-dark-grey: #4d4d4d;
 
   /* font-size */
   --font-large: 48px;
@@ -45,6 +46,7 @@ h1 {
 h2 {
   font-size: var(--font-regular);
   font-weight: var(--weight-semi-bold);
+  color: var(--color-dark-grey);
   margin: 16px 0px;
 }
 h3 {
@@ -55,6 +57,7 @@ h3 {
 p {
   font-size: var(--weight-regular);
   font-weight: var(--weight-regular);
+  color: var(--color-dark-grey);
   margin: 8px 0px;
 }
 a {
@@ -64,6 +67,16 @@ a {
 ul {
   list-style: none;
   padding-left: 0;
+}
+nav {
+  margin: auto;
+}
+button {
+  background-color: transparent;
+  color: var(--color-dark-grey);
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 /* navbar */
@@ -114,6 +127,14 @@ ul {
 .home__right {
   width: 600px;
 }
+.home__contact {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  margin: 24px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-dark-grey);
+  border-radius: 4px;
+}
 
 /* about */
 #about {
@@ -136,12 +157,71 @@ ul {
   line-height: 150px;
   /* background-color: var(--color-boldpurp); */
   font-size: var(--font-large);
-  margin: 8px 0px;
+  margin: auto;
+  margin-bottom: 16px;
+}
+.skills__icon i {
+  transition: all 200ms ease;
+}
+.skills__icon:hover i {
+  color: var(--color-satbeige);
+  transform: rotate(15deg) scale(1.1);
 }
 .skills__title {
   font-size: var(--font-regular);
   font-weight: var(--weight-semi-bold);
   margin-bottom: 8px;
+}
+
+/* Projects */
+.projects__categories {
+  margin: 40px;
+}
+.category__btn {
+  border: 1px solid var(--color-darksatgreen);
+  border-radius: 4px;
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+}
+.category__btn.active,
+.category__btn:hover {
+  background-color: var(--color-darksatgreen);
+}
+.category__btn.active .category__count,
+.category__btn:hover .category__count {
+  opacity: 1;
+  top: 0;
+}
+.category__count {
+  background-color: var(--color-satorange);
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  position: relative;
+  top: -20px;
+  left: 4px;
+  opacity: 0;
+  transition: all 200ms ease-in;
+}
+.projects__table {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  width: 200px;
+  height: 250px;
+  margin: 2px;
+  background-color: orange;
+}
+
+.project__img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 @media screen and (max-width: 768px) {
