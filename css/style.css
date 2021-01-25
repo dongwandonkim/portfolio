@@ -7,6 +7,7 @@
   --color-satorange: #f4a548;
   --color-boldpurp: #862a5c;
   --color-dark-grey: #4d4d4d;
+  --color-whitesmoke: #f5f5f5;
 
   /* font-size */
   --font-large: 48px;
@@ -44,7 +45,7 @@ h1 {
   margin: 16px 0px;
 }
 h2 {
-  font-size: var(--font-regular);
+  font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
   color: var(--color-dark-grey);
   margin: 16px 0px;
@@ -62,7 +63,7 @@ p {
 }
 a {
   text-decoration: none;
-  color: white;
+  color: var(--color-whitesmoke);
 }
 ul {
   list-style: none;
@@ -81,6 +82,7 @@ button {
 
 /* navbar */
 #navbar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   background-color: var(--color-satgreen);
@@ -108,6 +110,15 @@ button {
 .navbar__menu__item:hover {
   background-color: var(--color-satbeige);
   border-radius: 4px;
+}
+
+.navbar__toggle-btn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 24px;
+  color: var(--color-whitesmoke);
+  display: none;
 }
 
 /* home */
@@ -174,6 +185,9 @@ button {
 }
 
 /* Projects */
+#projects {
+  background-color: var(--color-darksatgreen);
+}
 .projects__categories {
   margin: 40px;
 }
@@ -194,7 +208,7 @@ button {
 }
 .category__count {
   background-color: var(--color-satorange);
-  color: white;
+  color: var(--color-whitesmoke);
   border-radius: 50%;
   width: 24px;
   height: 24px;
@@ -247,7 +261,7 @@ button {
 }
 
 .project__description h3 {
-  color: white;
+  color: var(--color-whitesmoke);
 }
 .project__description h3:after {
   content: '';
@@ -257,11 +271,50 @@ button {
   width: 24px;
   height: 2px;
   margin-left: -12px;
-  background-color: #fff;
+  background-color: var(--color-whitesmoke);
 }
 
+/* contact */
+#contact {
+  background-color: var(--color-satgreen);
+}
+#contact h2 {
+  color: var(--color-dark-grey);
+}
+.contact__links i {
+  font-size: var(--font-large);
+  color: var(--color-dark-grey);
+  margin: 24px 0;
+  transition: all 150ms ease-in;
+}
+.contact__links i:hover {
+  transform: scale(1.1);
+  color: var(--color-satbeige);
+}
+
+/* for below 768px */
 @media screen and (max-width: 768px) {
+  .navbar__toggle-btn {
+    display: block;
+  }
   #navbar {
-    background-color: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar__menu {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+  .about__skills {
+    flex-direction: column;
+  }
+  .about__skills__content {
+    margin-bottom: 24px;
+  }
+  .project {
+    flex-grow: 1;
+    margin-bottom: 24px;
   }
 }
