@@ -1,6 +1,13 @@
 const navBar = document.querySelector('#navbar');
 const navMenu = document.querySelector('.navbar__menu');
 const toggle = document.querySelector('.navbar__toggle-btn');
+const contactBtn = document.querySelector('.home__contact');
+const homeContainer = document.querySelector('.home__container');
+
+const homeContainerHeight = homeContainer.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+  homeContainer.style.opacity = 1 - window.scrollY / homeContainerHeight;
+});
 
 // toggle nav menu
 toggle.addEventListener('click', () => {
@@ -13,7 +20,6 @@ toggle.addEventListener('click', () => {
 
 //sticky navbar
 const navbarHeight = navBar.getBoundingClientRect().height;
-
 document.addEventListener('scroll', () => {
   //console.log(`getbound = ${abc}`);
   if (window.scrollY > navbarHeight) {
@@ -31,7 +37,14 @@ navMenu.addEventListener('click', (event) => {
   if (link == null) {
     return;
   }
-  console.log(event.target.dataset.link);
-  const scrollTo = document.querySelector(link);
-  scrollTo.scrollIntoView({ behavior: 'smooth' });
+  scrollIntoView(link);
 });
+
+contactBtn.addEventListener('click', () => {
+  scrollIntoView('#contact');
+});
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: 'smooth' });
+}

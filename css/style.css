@@ -28,14 +28,14 @@
 body {
   font-family: 'Fira Code', monospace;
   cursor: default;
-  margin: 0;
+  margin: auto;
+  max-width: 1200px;
 }
 
 .section {
   padding: 50px;
   text-align: center;
   margin: auto;
-  max-width: 1200px;
 }
 
 /* Typography */
@@ -83,6 +83,7 @@ button {
 /* navbar */
 #navbar {
   position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -133,6 +134,7 @@ button {
   justify-content: space-evenly;
   align-items: center;
   padding-top: 80px;
+  opacity: 1;
 }
 
 .home__left {
