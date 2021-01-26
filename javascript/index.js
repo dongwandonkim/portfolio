@@ -24,13 +24,10 @@ document.addEventListener('scroll', () => {
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-// toggle nav menu
+
+// toggle nav menu for small screen
 toggle.addEventListener('click', () => {
-  if (navMenu.style.display === 'none') {
-    navMenu.style.display = 'flex';
-  } else {
-    navMenu.style.display = 'none';
-  }
+  navMenu.classList.toggle('open');
 });
 
 //sticky navbar
@@ -52,6 +49,7 @@ navMenu.addEventListener('click', (event) => {
   if (link == null) {
     return;
   }
+  navMenu.classList.remove('open');
   scrollIntoView(link);
 });
 
