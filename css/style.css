@@ -71,6 +71,7 @@ ul {
 }
 nav {
   margin: auto;
+  max-width: 1200px;
 }
 button {
   background-color: transparent;
@@ -300,6 +301,26 @@ button {
   color: var(--color-satbeige);
 }
 
+/* scroll to top */
+.scrollToTop {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 99;
+  background: var(--color-satbeige);
+  color: var(--color-dark-grey);
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 200ms ease-in;
+}
+.scrollToTop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 /* for below 768px */
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {

@@ -4,11 +4,26 @@ const toggle = document.querySelector('.navbar__toggle-btn');
 const contactBtn = document.querySelector('.home__contact');
 const homeContainer = document.querySelector('.home__container');
 
+// fadeout .home__container
 const homeContainerHeight = homeContainer.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
   homeContainer.style.opacity = 1 - window.scrollY / homeContainerHeight;
 });
 
+//scroll to top
+const scrollTopBtn = document.querySelector('.scrollToTop');
+document.addEventListener('scroll', () => {
+  if (window.scrollY > homeContainerHeight / 2) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
+  scrollTopBtn.addEventListener('click', scrollToTop);
+});
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 // toggle nav menu
 toggle.addEventListener('click', () => {
   if (navMenu.style.display === 'none') {
