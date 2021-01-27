@@ -33,7 +33,6 @@ toggle.addEventListener('click', () => {
 //sticky navbar
 const navbarHeight = navBar.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
-  //console.log(`getbound = ${abc}`);
   if (window.scrollY > navbarHeight) {
     navBar.classList.add('navbar--dark');
   } else {
