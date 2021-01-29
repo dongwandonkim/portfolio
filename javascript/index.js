@@ -24,6 +24,8 @@ scrollTopBtn.addEventListener('click', () => scrollIntoView('#home'));
 // toggle nav menu for small screen
 toggle.addEventListener('click', () => {
   navMenu.classList.toggle('open');
+  toggle.querySelector('i').classList.toggle('active');
+  // abc.classList.toggle('active');
 });
 
 //sticky navbar
