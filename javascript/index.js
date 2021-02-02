@@ -25,7 +25,6 @@ scrollTopBtn.addEventListener('click', () => scrollIntoView('#home'));
 toggle.addEventListener('click', () => {
   navMenu.classList.toggle('open');
   toggle.querySelector('i').classList.toggle('active');
-  // abc.classList.toggle('active');
 });
 
 //sticky navbar
@@ -47,6 +46,7 @@ navMenu.addEventListener('click', (event) => {
     return;
   }
   navMenu.classList.remove('open');
+
   scrollIntoView(link);
 });
 
