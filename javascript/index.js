@@ -3,16 +3,24 @@ const navMenu = document.querySelector('.navbar__menu');
 const toggle = document.querySelector('.navbar__toggle-btn');
 const contactBtn = document.querySelector('.home__contact');
 const homeContainer = document.querySelector('.home__container');
+const scrollTopBtn = document.querySelector('.scrollToTop');
 
-// fadeout .home__container
+const doc = document.documentElement;
+const w = window;
+let prevScroll = w.scrollY || doc.scrollTop;
+let curScroll;
+let direction = 0;
+let prevDirection = 0;
+
 const homeContainerHeight = homeContainer.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
+  //fadeout .home__container
   homeContainer.style.opacity = 1 - window.scrollY / homeContainerHeight;
-});
 
-//scroll to top
-const scrollTopBtn = document.querySelector('.scrollToTop');
-document.addEventListener('scroll', () => {
+  //for navbar animation when scrolling
+  checkScroll();
+
+  //scroll to top
   if (window.scrollY > homeContainerHeight / 2) {
     scrollTopBtn.classList.add('visible');
   } else {
@@ -24,18 +32,41 @@ scrollTopBtn.addEventListener('click', () => scrollIntoView('#home'));
 // toggle nav menu for small screen
 toggle.addEventListener('click', () => {
   navMenu.classList.toggle('open');
-  toggle.querySelector('i').classList.toggle('active');
+  document.body.classList.toggle('menu-open'); //unable scroll Body
 });
 
-//sticky navbar
+//show navbar on scroll up & hide on scroll down
 const navbarHeight = navBar.getBoundingClientRect().height;
-document.addEventListener('scroll', () => {
-  if (window.scrollY > navbarHeight) {
-    navBar.classList.add('navbar--dark');
-  } else {
-    navBar.classList.remove('navbar--dark');
+const checkScroll = () => {
+  /*
+   ** Find the direction of scroll
+   ** 0 - initial, 1 - up, 2 - down
+   */
+  curScroll = w.scrollY || doc.scrollTop;
+  if (curScroll > prevScroll) {
+    //scrolled up
+    direction = 2;
+  } else if (curScroll < prevScroll) {
+    //scrolled down
+    direction = 1;
   }
-});
+
+  if (direction !== prevDirection) {
+    toggleHeader(direction, curScroll);
+  }
+
+  prevScroll = curScroll;
+};
+
+const toggleHeader = (direction, curScroll) => {
+  if (direction === 2 && curScroll > navbarHeight / 2) {
+    navBar.classList.add('hide');
+    prevDirection = direction;
+  } else if (direction === 1) {
+    navBar.classList.remove('hide');
+    prevDirection = direction;
+  }
+};
 
 //scroll to section
 navMenu.addEventListener('click', (event) => {
@@ -46,7 +77,8 @@ navMenu.addEventListener('click', (event) => {
     return;
   }
   navMenu.classList.remove('open');
-
+  navBar.classList.toggle('hide');
+  document.body.classList.remove('menu-open');
   scrollIntoView(link);
 });
 
@@ -54,7 +86,7 @@ contactBtn.addEventListener('click', () => {
   scrollIntoView('#contact');
 });
 
-const sectionIds = ['#home', '#about', '#projects', '#contact'];
+const sectionIds = ['#home', '#projects', '#contact'];
 const sections = sectionIds.map((id) => document.querySelector(id));
 const navItems = sectionIds.map((id) =>
   document.querySelector(`[data-link="${id}"]`)
