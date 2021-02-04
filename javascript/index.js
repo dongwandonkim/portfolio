@@ -14,20 +14,14 @@ let prevDirection = 0;
 
 const homeContainerHeight = homeContainer.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
-  //fadeout .home__container
-  homeContainer.style.opacity = 1 - window.scrollY / homeContainerHeight;
-
+  if (window.scrollY < 60) {
+    navBar.classList.remove('hide');
+  }
+  // //fadeout .home__container
+  // homeContainer.style.opacity = 1 - window.scrollY / homeContainerHeight;
   //for navbar animation when scrolling
   checkScroll();
-
-  //scroll to top
-  if (window.scrollY > homeContainerHeight / 2) {
-    scrollTopBtn.classList.add('visible');
-  } else {
-    scrollTopBtn.classList.remove('visible');
-  }
 });
-scrollTopBtn.addEventListener('click', () => scrollIntoView('#home'));
 
 // toggle nav menu for small screen
 toggle.addEventListener('click', () => {
@@ -59,7 +53,7 @@ const checkScroll = () => {
 };
 
 const toggleHeader = (direction, curScroll) => {
-  if (direction === 2 && curScroll > navbarHeight / 2) {
+  if (direction === 2 && curScroll > navbarHeight) {
     navBar.classList.add('hide');
     prevDirection = direction;
   } else if (direction === 1) {
@@ -77,7 +71,7 @@ navMenu.addEventListener('click', (event) => {
     return;
   }
   navMenu.classList.remove('open');
-  navBar.classList.toggle('hide');
+
   document.body.classList.remove('menu-open');
   scrollIntoView(link);
 });
