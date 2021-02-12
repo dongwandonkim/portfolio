@@ -36,13 +36,14 @@ html {
 }
 
 body {
-  font-family: 'Coda', cursive;
+  font-family: 'Fira Code', monospace;
   cursor: default;
   /* margin: auto; */
 }
 
 .section {
   margin: auto;
+  padding: 60px 0;
   max-width: 1200px;
 }
 
@@ -109,6 +110,7 @@ button {
 .navbar__logo {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+  color: var(--color-azureish-green);
   padding: 16px;
 }
 .navbar__menu {
@@ -126,20 +128,20 @@ button {
   margin: 0 12px;
   cursor: pointer;
   font-weight: var(--weight-bold);
-  color: var(--color-plainwhite);
+  color: var(--color-azureish-green);
 }
 .navbar__menu__item.active {
-  border-bottom: 2px solid var(--color-myrtlegreen);
+  border-bottom: 2px solid var(--color-azureish-green);
 }
 .navbar__menu__item:hover {
-  color: var(--color-azureish-green);
+  color: var(--color-plainwhite);
 }
 .navbar__toggle-btn {
   position: absolute;
   top: 20px;
   right: 24px;
   font-size: 24px;
-  color: var(--color-whitesmoke);
+  color: var(--color-azureish-green);
   z-index: 99;
   display: none;
 }
@@ -161,8 +163,12 @@ button {
   align-items: center;
   width: 100%;
   padding: 80px 24px;
-  border: 2px solid var(--color-plainwhite);
+  border: 2px solid var(--color-azureish-green);
   border-radius: 4px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 .icon__set {
   width: 100%;
@@ -180,7 +186,8 @@ button {
   font-size: 36px;
   text-align: center;
   cursor: pointer;
-  color: var(--color-black);
+  /* color: var(--color-black); */
+  color: var(--color-azureish-green);
 }
 .icon__set i:hover {
   color: var(--color-plainwhite);
@@ -197,13 +204,13 @@ button {
 .home__right__column p {
   font-size: 18px;
   margin-bottom: 15px;
+  text-align: left;
 }
 .home__container .home__skillset {
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 200px));
   padding: 0px;
   margin: 20px 0px 0px;
-  /* overflow: hidden; */
   list-style: none;
 }
 
@@ -213,15 +220,15 @@ button {
   padding-left: 20px;
 }
 .home__skillset li::before {
-  content: '-';
+  content: '\2023';
   position: absolute;
   left: 0px;
-  line-height: 12px;
-  color: var(--color-plainwhite);
+  line-height: 16px;
+  color: var(--color-azureish-green);
 }
 
 .home__title {
-  color: var(--color-plainwhite);
+  color: var(--color-azureish-green);
   margin-bottom: 12px;
   letter-spacing: 0.15em;
 }
@@ -232,12 +239,17 @@ button {
 .home__description {
   font-family: 'Crimson Text', serif;
   font-size: var(--font-regular);
-  width: 100%;
+  width: 65%;
   /* text-align: left; */
+}
+.home__description span {
+  /* color: #9b1121; */
+  font-style: italic;
 }
 .home__contact {
   font-size: var(--font-regular);
   font-weight: var(--weight-bold);
+  color: var(--color-azureish-green);
   margin-top: 24px;
   padding: 8px 16px;
   background-color: var(--color-myrtlegreen);
@@ -251,69 +263,86 @@ button {
 
 /* Projects */
 #projects {
-  background-color: var(--color-keppel);
-  display: flex;
-  flex-direction: column;
+}
+.projects__headline {
+  margin: 12px 0 50px;
+  text-align: center;
+  font-size: var(--font-large);
+}
+.project__container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
   align-items: center;
-  justify-content: center;
+  margin-bottom: 80px;
 }
-
-.projects__table {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 24px;
-}
-
-.project {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 280px;
-  height: 250px;
-  margin: 24px;
-  background-color: lightgray;
-}
-
 .project__img {
-  max-width: 100%;
-  max-height: 100%;
+  background-color: var(--color-black);
+  position: relative;
+  grid-column: 1 / 8;
+  grid-area: 1 / 1 / -1 / 8;
+  border-radius: 2px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
-.project__description {
-  position: absolute;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.project__img img {
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 150ms ease-in;
 }
-.project:hover .project__description {
-  transform: translateY(0);
-  opacity: 0.8;
+.project__content {
+  grid-column: 7 / -1;
+  grid-area: 2 / 7 / -1 / -1;
+  text-align: right;
+  z-index: 1;
 }
-
-.project__description h3 {
-  color: var(--color-satorange);
+.project__title {
+  color: var(--color-azureish-green);
+  font-size: var(--font-medium);
 }
-.project__description h3:after {
-  content: '';
-  display: block;
+.project__skills {
+}
+.skill__lists {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 15px 0 20px;
+}
+.skill__lists li {
   position: relative;
-  left: 50%;
-  width: 30%;
-  height: 2px;
-  margin-top: 12px;
-  transform: translateX(-50%);
-  background-color: var(--color-whitesmoke);
+  margin-left: 24px;
 }
-
+.skill__lists li::before {
+  content: '\2023';
+  position: absolute;
+  left: -12px;
+  line-height: 16px;
+  color: var(--color-azureish-green);
+}
+.project__desc {
+  padding: 18px;
+  border-radius: 2px;
+  background-color: var(--color-myrtlegreen);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.project__desc p {
+  color: var(--color-azureish-green);
+}
+.project__links {
+}
+.link__lists {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 15px 0 20px;
+}
+.link__lists li {
+  margin-left: 12px;
+}
 /* contact */
 #contact {
   display: flex;
