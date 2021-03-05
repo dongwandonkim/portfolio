@@ -311,6 +311,7 @@ button {
 }
 
 .project__title {
+  font-weight: var(--weight-bold);
   color: var(--color-azureish-green);
   font-size: var(--font-medium);
 }
