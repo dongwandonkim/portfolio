@@ -38,6 +38,7 @@ html {
 body {
   font-family: 'Fira Code', monospace;
   cursor: default;
+  heihgt: 100vh;
   /* margin: auto; */
 }
 
