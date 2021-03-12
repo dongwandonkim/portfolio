@@ -335,7 +335,7 @@ button {
   margin: 0 12px 5px 0;
 }
 .project__desc {
-  padding: 16px;
+  padding: 20px;
   border-radius: 4px;
   background-color: var(--color-myrtlegreen);
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -344,8 +344,23 @@ button {
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 .project__desc p {
+  text-align: left;
+}
+.project__desc li {
+  margin-bottom: 5px;
+}
+
+.project__desc ul li {
   opacity: 1;
   color: var(--color-azureish-green);
+  list-style-position: outside;
+  list-style: circle;
+  margin-left: 1.2em;
+}
+.project__desc:nth-of-type(2n + 1) ul li {
+  text-align: left;
+  color: var(--color-azureish-green);
+  margin-right: 1em;
 }
 .project__links {
 }
